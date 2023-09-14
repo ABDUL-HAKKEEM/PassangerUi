@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebBus</title>
+    <link rel="stylesheet" href="Styles.css">
+    <div><img src="logo.jpg" width="150" alt="logo" height="150"></div>
+    <br>
+    <div class="container">
+        <div class="display-date">
+            <span id="day">day</span>,
+            <span id="daynum">00</span>
+            <span id="month">month</span>
+            <span id="year">0000</span>
+        </div>
+        <div class="display-time"></div>
+    </div>
+    <br>
+    <p>Current location: <b>OTHAKALMANDAPAM</b></p>
+    
+    
+    
+</head>
+<body>
+    <script>
+        // Time
+        function showTime() {
+            let time = new Date();
+            let displayTime = document.querySelector(".display-time");
+            displayTime.innerText = time.toLocaleTimeString("en-US", { hour12: false });
+            setTimeout(showTime, 1000);
+        }
+
+        // Date
+        function updateDate() {
+            let today = new Date();
+            let dayName = today.getDay();
+            let dayNum = today.getDate();
+            let month = today.getMonth();
+            let year = today.getFullYear();
+
+            const months = [
+                "January", "February", "March", "April", "May", "June",
+                "July", "August", "September", "October", "November", "December"
+            ];
+            const dayWeek = [
+                "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"
+            ];
+            const IDCollection = ["day", "daynum", "month", "year"];
+            const val = [dayWeek[dayName], dayNum, months[month], year];
+
+            for (let i = 0; i < IDCollection.length; i++) {
+                document.getElementById(IDCollection[i]).textContent = val[i];
+            }
+        }
+
+        showTime();
+        updateDate();
+
+        const myButton = document.getElementById("myButton");
+        myButton.addEventListener("click", function() {
+            
+        });
+    </script>
+    
+    <p>NUMBER OF PASSENGERS =<B>05</B></p>
+    <p><B>SELECT THE REQUIRED BUS NUMBER TO REACH YOUR DESTINATION</B></p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>BUS NO</th>
+                <th>DEPARTURE TIME</th>
+                <th>ARRIVAL TIME</th>
+                <th>MAXIMUM SEATS</th>
+                <th>AVAILABLE SEATS</th>
+                <th>DESTINATION</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><a href="qrscan.html">
+                    <button id="myButton">BUS NO 1</button>
+                  </a></td>
+                <td>09:00 AM - 09:05 AM</td>
+                <td>09:55 AM - 10:00 AM</td>
+                <td>50</td>
+                <td>12</td>
+                <td>Ukkadam</td>
+                
+            </tr>
+            <tr>
+                <td><a href="qrscan.html">
+                    <button id="myButton">BUS NO 2</button>
+                  </a></td>
+                <td>09:05 AM - 09:10 AM</td>
+                <td>10:00 AM - 10:05 AM</td>
+                <td>50</td>
+                <td>08</td>
+                <td>Ukkadam</td>
+            </tr>
+            <tr>
+                <td><a href="qrscan.html">
+                    <button id="myButton">BUS NO 3</button>
+                  </a></td>
+                <td>09:10 AM - 09:15 AM</td>
+                <td>10:05 AM - 10:10 AM</td>
+                <td>50</td>
+                <td>05</td>
+                <td>Ukkadam</td>
+            </tr>
+            <tr>
+                <td><a href="qrscan.html">
+                    <button id="myButton">BUS NO 4</button>
+                  </a></td>
+                <td>09:15 AM - 09:20 AM</td>
+                <td>10:10 AM - 10:15 AM</td>
+                <td>50</td>
+                <td>15</td>
+                <td>Ukkadam</td>
+            </tr>
+            <tr>
+                <td><a href="qrscan.html">
+                    <button id="myButton">BUS NO 5</button>
+                  </a></td>
+                <td>09:20 AM - 09:25 AM</td>
+                <td>10:15 AM - 10:20 AM</td>
+                <td>50</td>
+                <td>10</td>
+                <td>Ukkadam</td>
+            </tr>
+            
+            
+        </tbody>
+    </table>
+
+    
+    
+    
+</body>
+</html>
+</body>
+</html>

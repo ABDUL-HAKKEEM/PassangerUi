@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebBus</title>
+    <link rel="stylesheet" href="Styles.css">
+    <div><img src="logo.jpg" width="150" alt="logo" height="150"></div>
+    <br>
+    <div class="container">
+        <div class="display-date">
+            <span id="day">day</span>,
+            <span id="daynum">00</span>
+            <span id="month">month</span>
+            <span id="year">0000</span>
+        </div>
+        <div class="display-time"></div>
+    </div>
+    
+    <p>Current location: <b>OTHAKALMANDAPAM</b></p>
+    
+    
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f5f5f5;
+        }
+
+        .display {
+            text-align: center;
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .number-pad {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 5px;
+            max-width: 300px;
+            padding: 20px;
+            background-color: #f3f3f3;
+            border-radius: 10px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .button {
+            font-size: 16px;
+            text-align: center;
+            padding: 15px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .button:hover {
+            background-color: #2980b9;
+        }
+
+        #clear {
+            grid-column: span 1;
+            background-color: #e74c3c;
+        }
+
+        #enter {
+            grid-row: span 1;
+            background-color: #2ecc71;
+            transition: grid-row 0.3s ease-in-out;
+        }
+
+        #enter:hover {
+            background-color: #27ae60;
+        }
+
+        #enter.active {
+            grid-row: span 3;
+        }
+    </style>
+
+
+    <div class="display">
+        <span id="display-text">NUMBER OF PASSANGERS</span>
+    </div>
+
+    <div class="number-pad">
+        <div class="button">1</div>
+        <div class="button">2</div>
+        <div class="button">3</div>
+        <div class="button">4</div>
+        <div class="button">5</div>
+        <div class="button">6</div>
+        <div class="button">7</div>
+        <div class="button">8</div>
+        <div class="button">9</div>
+        <div class="button" id="clear">Clear</div>
+        <div class="button">0</div>
+        <div class="button" id="enter">Enter</div>
+    </div>
+
+    <script>
+        const display = document.getElementById('display-text');
+        const enterButton = document.getElementById('enter');
+
+        let currentInput = '';
+
+        const buttons = document.querySelectorAll('.button');
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                const buttonText = button.textContent;
+                if (buttonText === 'Clear') {
+                    currentInput = '';
+                } else if (buttonText === 'Enter') {
+                    if (currentInput.length === 2) {
+                        display.textContent = 'Input submitted: ' + currentInput;
+                        currentInput = '';
+                    } else if (currentInput.length === 1) {
+                        currentInput += '0'; // Automatically add a '0' before 'Enter' if only one digit is entered
+                        display.textContent = 'Input submitted: ' + currentInput;
+                        currentInput = '';
+                    }
+                } else if (currentInput.length < 2) {
+                    currentInput += buttonText;
+                }
+                display.textContent = currentInput || 'Enter digits';
+            });
+        });
+
+        // Add click event listener to expand the "Enter" button
+        enterButton.addEventListener('click', () => {
+            enterButton.classList.toggle('active');
+        });
+    </script>
+
+    <br>
+    <a href="busdetails.html">
+        <button id="myButton">next</button>
+      </a>
+</head>
+<body>
+    <script>
+        // Time
+        function showTime() {
+            let time = new Date();
+            let displayTime = document.querySelector(".display-time");
+            displayTime.innerText = time.toLocaleTimeString("en-US", { hour12: false });
+            setTimeout(showTime, 1000);
+        }
+
+        // Date
+        function updateDate() {
+            let today = new Date();
+            let dayName = today.getDay();
+            let dayNum = today.getDate();
+            let month = today.getMonth();
+            let year = today.getFullYear();
+
+            const months = [
+                "January", "February", "March", "April", "May", "June",
+                "July", "August", "September", "October", "November", "December"
+            ];
+            const dayWeek = [
+                "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"
+            ];
+            const IDCollection = ["day", "daynum", "month", "year"];
+            const val = [dayWeek[dayName], dayNum, months[month], year];
+
+            for (let i = 0; i < IDCollection.length; i++) {
+                document.getElementById(IDCollection[i]).textContent = val[i];
+            }
+        }
+
+        showTime();
+        updateDate();
+
+        const myButton = document.getElementById("myButton");
+        myButton.addEventListener("click", function() {
+            
+        });
+    </script>
+    
+    
+        
+    
+    
+    
+</body>
+</html>
+</body>
+</html>

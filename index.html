@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebBus</title>
+    <link rel="stylesheet" href="Styles.css">
+</head>
+<body>
+    <div><img src="logo.jpg" width="150" alt="logo" height="150"></div>
+    <br>
+    <div class="container">
+        <div class="display-date">
+            <span id="day">day</span>,
+            <span id="daynum">00</span>
+            <span id="month">month</span>
+            <span id="year">0000</span>
+        </div>
+        <div class="display-time"></div>
+    </div>
+    <br>
+    <p>Current location: <b>OTHAKALMANDAPAM</b></p>
+    <br>
+    <section>
+        <div id="destination">
+            <label for="destination">Select your destination</label>
+            <select id="destination">
+                <option>MALUMICHAMPATTI</option>
+                <option>EECHANAARI</option>
+                <option>SUNDHARAPURAM</option>
+                <option>UKKADAM</option>
+                <option>VADAKOVAI</option>
+                <option>RS PURAM</option>
+                <option>GOUNDAPALAYAM</option>
+                <option>THUDIYALUR</option>
+                <option>KARAMADAI</option>
+                <option>METTUPALAYAM</option>
+            </select>
+            <br>
+            <br>
+            <a href="passcount.html">
+            <button id="myButton">next</button>
+          </a>
+        </div>
+    </section>
+    <script>
+        // Time
+        function showTime() {
+            let time = new Date();
+            let displayTime = document.querySelector(".display-time");
+            displayTime.innerText = time.toLocaleTimeString("en-US", { hour12: false });
+            setTimeout(showTime, 1000);
+        }
+
+        // Date
+        function updateDate() {
+            let today = new Date();
+            let dayName = today.getDay();
+            let dayNum = today.getDate();
+            let month = today.getMonth();
+            let year = today.getFullYear();
+
+            const months = [
+                "January", "February", "March", "April", "May", "June",
+                "July", "August", "September", "October", "November", "December"
+            ];
+            const dayWeek = [
+                "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"
+            ];
+            const IDCollection = ["day", "daynum", "month", "year"];
+            const val = [dayWeek[dayName], dayNum, months[month], year];
+
+            for (let i = 0; i < IDCollection.length; i++) {
+                document.getElementById(IDCollection[i]).textContent = val[i];
+            }
+        }
+
+        showTime();
+        updateDate();
+
+        // Button click event example
+        const myButton = document.getElementById("myButton");
+        myButton.addEventListener("click", function() {
+            
+        });
+    </script>
+</body>
+</html>

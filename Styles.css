@@ -1,0 +1,113 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+div{
+    text-align: center;
+}
+#lan label select{
+    text-align: right;
+    display: inline;
+    padding-left: 10px;
+}
+
+p{
+    text-align: center;
+}
+body {
+  background-image: url('html\ bg.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}/*
+body {
+    font-family: "Lato", sans-serif;
+    color: #030303;
+    display: flex;
+    justify-content:right;
+    align-items: right;
+    height: 100vh;
+    
+  }
+
+
+.display-date {
+  text-align: right;
+  margin-bottom: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+
+}
+
+.display-time {
+  display: inline;
+  font-size: 1rem;
+  font-weight: bold;
+  border: 2px solid #ffd868;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: ease-in-out 0.1s;
+  transition-property: background, box-shadow, color;
+  -webkit-box-reflect: below 2px
+    linear-gradient(transparent, rgba(255, 255, 255, 0.05));
+}
+*/
+.display-time:hover {
+  background: #ffd868;
+  box-shadow: 0 0 30px#ffd868;
+  color: #000000;
+  cursor: pointer;
+}
+
+.container{
+    display:inline;
+    text-align:right;
+    padding-left:80%;
+}
+/* styles.css */
+#myButton {
+  background-color: #110ae5; /* Green background color */
+  color: white; /* White text color */
+  padding: 5px 5px; /* Padding around the button content */
+  border: none; /* Remove button border */
+  border-radius: 6px; /* Rounded corners */
+  cursor: pointer; /* Change cursor on hover to indicate interactivity */
+  font-size: 15px; /* Font size */
+}
+
+#myButton:hover {
+  background-color: #110ae5; /* Darker green background color on hover */
+}
+body{
+  text-align: center;
+}
+/* styles.css */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tr:hover {
+  background-color: #ddd;
+}
+h1{
+  color: rgb(5, 72, 72);
+}
+h2{
+  border: 2px solid #000;
+  padding: 10px;
+  display: inline-block;
+}
